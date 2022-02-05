@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float rotationSpeed;
+    public GameObject dust;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         transform.Rotate(0,0, rotationSpeed);
     }
 
+    //Creating the dust effect after death
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -31,7 +33,11 @@ public class Enemy : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Ground")
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            GameObject dustEffect = Instantiate(dust, transform.position, Quaternion.identity);
+
+            Destroy(dustEffect, 2f);
+            Destroy(gameObject, 3f);
         }
     }
 }
