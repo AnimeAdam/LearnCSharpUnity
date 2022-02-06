@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     //Uses CancelInvoke to stop invoking a function.
-    void StopSpawning()
+    public void StopSpawning()
     {
         CancelInvoke("SpawnSpike");
     }

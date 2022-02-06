@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SaveTheBunnyAssets/Scenes/SaveTheBunny.unity
+    guid: 282f7820b5cf1f1408f552c613a10e96
+  - enabled: 1
+    path: Assets/SaveTheBunnyAssets/Scenes/SaveTheBunnyMenu.unity
+    guid: f823e47baedd2eb44bee23a9fe5ab1e3
   m_configObjects: {}
