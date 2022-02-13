@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef264e0855918548b43d03cecaaa4b0, type: 3}
+  m_Name: B 5
+  m_EditorClassIdentifier: 
+  storyText: 'Hello B5
+
+
+    1. A6
+
+    2. A5
+
+    3. A2
+
+'
+  nextStates:
+  - {fileID: 11400000, guid: 1a0814eb380bd314a882ed87a0053b74, type: 2}
+  - {fileID: 11400000, guid: ccbcc0d856f0f4c4282d93e9e5bbd853, type: 2}
+  - {fileID: 11400000, guid: 7544bad36a101ba4fa92e0da47f96043, type: 2}
