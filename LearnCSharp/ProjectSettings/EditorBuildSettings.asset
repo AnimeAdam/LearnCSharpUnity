@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/BlockBreaker/Scenes/BlockBreakerLevel1.unity
     guid: a2f8736475e856142ae16efcbc1436f7
   - enabled: 1
+    path: Assets/BlockBreaker/Scenes/BlockBreakerLevel2.unity
+    guid: 229a308b028539b40a6a8e0a8d715310
+  - enabled: 1
     path: Assets/BlockBreaker/Scenes/BlockBreakerGameOver.unity
     guid: 74aa9e1d3737303458181497a66ba4ba
   m_configObjects: {}
