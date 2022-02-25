@@ -15,5 +15,12 @@ public class BB_SceneLoader : MonoBehaviour
     public void LoadStartScene()
     {
         SceneManager.LoadScene(5);
+        if (FindObjectOfType<GameState>())
+            FindObjectOfType<GameState>().ResetGame();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

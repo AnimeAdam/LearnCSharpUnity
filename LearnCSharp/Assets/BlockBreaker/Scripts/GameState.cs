@@ -14,6 +14,19 @@ public class GameState : MonoBehaviour
     //State Variables
     [SerializeField] int currentScore = 0;
 
+    private void Awake()
+    {
+        int gameStateCount = FindObjectsOfType<GameState>().Length;
+        if (gameStateCount > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         AddScoreToScoreBoard();
@@ -32,8 +45,13 @@ public class GameState : MonoBehaviour
         AddScoreToScoreBoard();
     }
 
-    private void AddScoreToScoreBoard()
+    public void AddScoreToScoreBoard()
     {
         scoreText.text = scoreTextStart + currentScore.ToString();
+    }
+
+    public void ResetGame()
+    {
+        Destroy(gameObject);
     }
 }
