@@ -206,9 +206,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NumberWizard, Assembly-CSharp
-        m_MethodName: OnPressHigher
+      - m_Target: {fileID: 1501768438}
+        m_TargetAssemblyTypeName: BB_SceneLoader, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
