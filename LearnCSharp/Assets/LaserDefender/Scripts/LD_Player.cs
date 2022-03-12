@@ -6,10 +6,14 @@ using UnityEngine;
 public class LD_Player : MonoBehaviour
 {
     //Configuration Parameters
+    [Header("Player")] 
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float projectileSpeed = 20f;
-    [SerializeField] float projectileFiringPeriod = 1.2f;
     [SerializeField] float padding = 0.5f; //Adding padding for the boundary of where the player can move.
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
+    [SerializeField] float projectileSpeed = 20f;
+    [SerializeField] float projectileFiringPeriod = 0.2f;    
     [SerializeField] GameObject laserPrefab;
 
     Coroutine firingCoroutine; //Stores a reference to the Firing Coroutine, so when the button is let go, it will be stopped.
@@ -31,6 +35,24 @@ public class LD_Player : MonoBehaviour
     {
         Move();
         Fire();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+        if (!damageDealer) { return; }
+        ProcessHit(ref damageDealer);
+    }
+
+    //Gets the damage value and destroys enemy if health is less then 0.
+    private void ProcessHit(ref DamageDealer damageDealer)
+    {
+        health -= damageDealer.GetDamage();
+        damageDealer.Hit();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     //Fires the laser, based on the player's position

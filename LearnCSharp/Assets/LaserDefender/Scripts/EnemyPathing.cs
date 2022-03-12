@@ -24,13 +24,18 @@ public class EnemyPathing : MonoBehaviour
         MoveTowardsWaypoint();
     }
 
+    public void SetWaveConfig(WaveConfig waveConfig)
+    {
+        this.waveConfig = waveConfig;
+    }
+
     //Moves the enemy to the next waypoint in the list.
     private void MoveTowardsWaypoint()
     {
         if (waypointIndex <= waypoints.Count - 1)
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
-            var movementThisFrame = moveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetMoveSpeed() * Time.deltaTime;
             transform.position =
                 Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 

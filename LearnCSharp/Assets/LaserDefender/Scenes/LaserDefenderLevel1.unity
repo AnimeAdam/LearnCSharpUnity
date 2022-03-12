@@ -237,6 +237,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveConfigs:
   - {fileID: 11400000, guid: 7e347be3d9b62f74f8945e13e006a7c7, type: 2}
+  - {fileID: 11400000, guid: 5f07e6c7708cc6040b202efeaa662535, type: 2}
+  startingWave: 0
+  looping: 1
 --- !u!4 &397900378
 Transform:
   m_ObjectHideFlags: 0
@@ -676,10 +679,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5999700481581677491, guid: 3786f3e173b0a8f478c2dd52b7abf3af, type: 3}
-      propertyPath: laserPrefab
-      value: 
-      objectReference: {fileID: 5135519564893147004, guid: 4c855ed32699b784181e2e4bd6cac79d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3786f3e173b0a8f478c2dd52b7abf3af, type: 3}
 --- !u!1001 &6635586718292783000
