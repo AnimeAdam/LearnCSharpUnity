@@ -9,12 +9,18 @@ public class LD_Player : MonoBehaviour
     [Header("Player")] 
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 0.5f; //Adding padding for the boundary of where the player can move.
+    [SerializeField] float durationOfExplosion = 1f;
     [SerializeField] int health = 200;
+    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.75f;
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] AudioClip deathSFX;
 
     [Header("Projectile")]
     [SerializeField] float projectileSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 0.2f;    
     [SerializeField] GameObject laserPrefab;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.75f;
 
     Coroutine firingCoroutine; //Stores a reference to the Firing Coroutine, so when the button is let go, it will be stopped.
 
@@ -22,6 +28,7 @@ public class LD_Player : MonoBehaviour
     float xMax;
     float yMin;
     float yMax;
+
 
 
     // Start is called before the first frame update
@@ -51,8 +58,16 @@ public class LD_Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
     }
 
     //Fires the laser, based on the player's position
@@ -75,6 +90,7 @@ public class LD_Player : MonoBehaviour
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
 
             yield return new WaitForSeconds(projectileFiringPeriod);
         }

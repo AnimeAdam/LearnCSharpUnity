@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class LD_Enemy : MonoBehaviour
 {
+    [Header ("Enemy")]
     [SerializeField] float health = 100f;
+    [SerializeField] float durationOfExplosion = 1f;
+    [SerializeField] GameObject projectile;
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] AudioClip deathSFX;
+    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.75f;
+
+    [Header ("Projectile")]
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] GameObject projectile;
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] [Range(0, 1)] float shootSoundVolume = 0.75f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +53,7 @@ public class LD_Enemy : MonoBehaviour
             Quaternion.identity) as GameObject;
 
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
+        AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootSoundVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,7 +70,16 @@ public class LD_Enemy : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    //Plays the explosion effect and destroys the enemey.
+    private void Die()
+    {                
+        Destroy(gameObject);
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        Destroy(explosion, durationOfExplosion);
+        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
     }
 }

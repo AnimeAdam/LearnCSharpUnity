@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BlockBreaker/Scenes/BlockBreakerGameOver.unity
     guid: 74aa9e1d3737303458181497a66ba4ba
+  - enabled: 1
+    path: Assets/LaserDefender/Scenes/LaserDefenderStartMenu.unity
+    guid: 5c9a9ae3f8097294a846455073ccfa3d
+  - enabled: 1
+    path: Assets/LaserDefender/Scenes/LaserDefenderGame.unity
+    guid: 2f4f24f503f143545a98d94256b4e7db
+  - enabled: 1
+    path: Assets/LaserDefender/Scenes/LaserDefenderGameOver.unity
+    guid: 3ad0f910d33e71348af69df78cde6486
   m_configObjects: {}

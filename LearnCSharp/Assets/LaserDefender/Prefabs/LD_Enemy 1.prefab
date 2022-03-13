@@ -112,11 +112,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  durationOfExplosion: 1
+  projectile: {fileID: 5135519564893147004, guid: 1ad0e045fad40064db56236d17469993, type: 3}
+  deathVFX: {fileID: 2313259745763659012, guid: 3e69e99551130a64a8e52520b8cf7fcc, type: 3}
+  deathSFX: {fileID: 8300000, guid: 4ea49804f89e982499be3c98f7432d06, type: 3}
+  deathSFXVolume: 0.75
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
   projectileSpeed: 10
-  projectile: {fileID: 5135519564893147004, guid: 1ad0e045fad40064db56236d17469993, type: 3}
+  shootSound: {fileID: 8300000, guid: 3605acb8e6e40fd4ab66cb03727d5071, type: 3}
+  shootSoundVolume: 0.15
 --- !u!58 &-6746685118758473453
 CircleCollider2D:
   m_ObjectHideFlags: 0
