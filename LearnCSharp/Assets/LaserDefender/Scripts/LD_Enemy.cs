@@ -6,6 +6,7 @@ public class LD_Enemy : MonoBehaviour
 {
     [Header ("Enemy")]
     [SerializeField] float health = 100f;
+    [SerializeField] int scoreValue = 150;
     [SerializeField] float durationOfExplosion = 1f;
     [SerializeField] GameObject projectile;
     [SerializeField] GameObject deathVFX;
@@ -76,7 +77,8 @@ public class LD_Enemy : MonoBehaviour
 
     //Plays the explosion effect and destroys the enemey.
     private void Die()
-    {                
+    {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
         Destroy(explosion, durationOfExplosion);

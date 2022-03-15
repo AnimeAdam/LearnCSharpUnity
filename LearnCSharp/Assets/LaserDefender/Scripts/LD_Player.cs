@@ -68,6 +68,12 @@ public class LD_Player : MonoBehaviour
         GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
         Destroy(explosion, durationOfExplosion);
         AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+        FindObjectOfType<LD_Level>().LoadGameOver();
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 
     //Fires the laser, based on the player's position
