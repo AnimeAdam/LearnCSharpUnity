@@ -6,7 +6,6 @@ public class EnemyPathing : MonoBehaviour
 {
     [SerializeField] WaveConfig waveConfig;
     List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
 
     int waypointIndex = 0;
 
