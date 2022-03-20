@@ -42,9 +42,21 @@ EditorBuildSettings:
     path: Assets/LaserDefender/Scenes/LaserDefenderGameOver.unity
     guid: 3ad0f910d33e71348af69df78cde6486
   - enabled: 1
-    path: Assets/Glitch Garden/Scenes/00 - Splash.unity
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 00 - Splash.unity
     guid: 0ff0e452069d48342b468b1e4fc6b99d
   - enabled: 1
-    path: Assets/Glitch Garden/Scenes/01a - StartMenu.unity
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 01a - StartMenu.unity
+    guid: c94230156da165549bca9fc2be147ccd
+  - enabled: 1
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 01b - Opitions.unity
+    guid: 8eafb8aa00594be4b81bd1aaf9a6b114
+  - enabled: 1
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 02 - Level 1.unity
+    guid: d7f804f3d777c2342bc4e516e4a27207
+  - enabled: 1
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 03a - Win.unity
+    guid: b65eb48f5a7efce44aa8d21d245c57d5
+  - enabled: 1
+    path: Assets/Glitch Garden/Scenes/GlitchGarden 03b - Lose.unity
     guid: 56c8700529106c74f9e8ff678bd20e8e
   m_configObjects: {}

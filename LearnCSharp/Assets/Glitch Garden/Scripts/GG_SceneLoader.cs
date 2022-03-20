@@ -23,7 +23,14 @@ public class GG_SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        if (autoLoadNextLevelAfter == 0)
+        {
+            Debug.Log("Level auto load disabled");
+        }
+        else
+        {
+            Invoke("LoadNextLevel", autoLoadNextLevelAfter);
+        }
     }
 
     public void LoadNextLevel()
@@ -35,9 +42,13 @@ public class GG_SceneLoader : MonoBehaviour
 
     public void LoadStartScene()
     {
-        SceneManager.LoadScene(5);
-        if (FindObjectOfType<GameState>())
-            FindObjectOfType<GameState>().ResetGame();
+        SceneManager.LoadScene(13);
+    }
+
+    public void LoadAScene(string name)
+    {
+        Debug.Log("New Level Loaded: " + name);
+        SceneManager.LoadScene(name);
     }
 
     public void QuitGame()
