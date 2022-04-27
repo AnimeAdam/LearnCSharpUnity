@@ -2,14 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class HealthMVP : MonoBehaviour
 {
     [SerializeField] float fullHealth = 100f;
     [SerializeField] float drainPerSecond = 2f;
     float currentHealth = 0;
 
-    //Model-View-Presenter
-    public event Action onHealthChange;
+    public event Action onHealthMVPChange;
 
     private void Awake()
     {
@@ -17,19 +16,14 @@ public class Health : MonoBehaviour
         StartCoroutine(HealthDrain());
     }
 
-    private void Start()
-    {
-    }
-
     private void OnEnable()
     {
-        GetComponent<Level>().onLevelUp.AddListener(ResetHealth); //Sets a callback function whenever onLevelUp is invoked.
-        GetComponent<Level>().OnLevelUpAction += ResetHealth; //Adds to the events in OnLevelUpAction.
+        GetComponent<LevelMVP>().onLevelMVPUpAction += ResetHealth;
     }
 
     private void OnDisable()
     {
-        GetComponent<Level>().OnLevelUpAction -= ResetHealth;
+        GetComponent<LevelMVP>().onLevelMVPUpAction -= ResetHealth;
     }
 
     public float GetHealth()
@@ -42,14 +36,13 @@ public class Health : MonoBehaviour
         return fullHealth;
     }
 
-    public void ResetHealth()
+    void ResetHealth()
     {
         currentHealth = fullHealth;
-        if (onHealthChange != null)
+        if (onHealthMVPChange != null)
         {
-            onHealthChange();
+            onHealthMVPChange();
         }
-
     }
 
     private IEnumerator HealthDrain()
@@ -57,6 +50,10 @@ public class Health : MonoBehaviour
         while (currentHealth > 0)
         {
             currentHealth -= drainPerSecond;
+            if (onHealthMVPChange != null)
+            {
+                onHealthMVPChange();
+            }
             yield return new WaitForSeconds(1);
         }
     }
